@@ -25,7 +25,19 @@ class AppKernel {
   }
 
   public function run(){
-    $this->loadView($this->loadAction());
+    try {
+        $this->loadView($this->loadAction());
+    } catch(\Exception $e) {
+        echo "<pre>";
+        echo '<h1>Exception:</h2>';
+        echo '<h2>',$e->getMessage(),'</h2>';
+        echo '<h2>Trace:</h2>';
+        foreach($e->getTrace() as $trace){
+                //$args = implode(', ', $trace['args']);
+                $args = str_replace(["\n",'  '],['',''],print_r($trace['args'],true));
+                echo "$trace[file]:$trace[line] $trace[class]::$trace[function]($args)<br/>";
+        }
+        echo "</pre>";
+    }
   }
-
 }
