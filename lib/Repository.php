@@ -3,12 +3,16 @@ namespace Library;
 
 class Repository {
   protected $table = NULL;
+  protected $manager = NULL;
+
   private $database = NULL;
 
-  public function __construct($table=null){
+  public function __construct($table=null,$manager=null){
     if(NULL === $table) $table = strtolower(basename(str_replace('\\','/',get_class($this))));
     if(NULL === $this->table) $this->table = $table;
-    $this->database = new Database();
+
+    if(NULL === $this->manager) $this->manager = $manager;
+    $this->database = new Database($this->manager);
   }
 
   public function create(array $data){
