@@ -1,5 +1,5 @@
 <?php
-namespace MVC;
+namespace Library;
 
 class AppKernel {
   private $module = 'root';
@@ -14,7 +14,7 @@ class AppKernel {
   }
 
   protected function loadAction(){
-    $class = "{$this->module}\\{$this->controller}Controller";
+    $class = "Controller\\{$this->module}\\{$this->controller}Controller";
     $method = "{$this->action}Action";
     return $class::$method();
   }

@@ -1,5 +1,5 @@
 <?php
-namespace Admin;
+namespace Controller\Admin;
 
 //use MVC\Repository;
 use Model\Company;

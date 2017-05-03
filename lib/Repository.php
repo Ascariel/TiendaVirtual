@@ -1,5 +1,5 @@
 <?php
-namespace MVC;
+namespace Library;
 
 class Repository {
   protected $table = NULL;

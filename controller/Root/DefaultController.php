@@ -1,5 +1,5 @@
 <?php
-namespace Root;
+namespace Controller\Root;
 
 class DefaultController {
 

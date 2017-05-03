@@ -1,7 +1,7 @@
 <?php
 namespace Model;
 
-use MVC\Repository;
+use Library\Repository;
 
 class Company extends Repository {
 

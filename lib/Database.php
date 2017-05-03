@@ -1,7 +1,7 @@
 <?php
-namespace MVC;
+namespace Library;
 
-use MVC\Config;
+use Library\Config;
 
 class Database {
   private $connection = NULL;
