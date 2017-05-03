@@ -9,12 +9,12 @@ class UserController {
 
     function indexAction() {
       $otro = $_GET['otro'];
-      $company = new Company;
+      #$company = new Company;
       $user = new User;
-      $user->create(['name'=>'katherine']);
+      #$user->create(['nombre'=>'katherine']);
 
       return [
-        'list'=> $company->select(['id', 'name']),
+        'list'=> $user->select(['id', 'nombre']),
         'user'=> $user,
       ];
     }

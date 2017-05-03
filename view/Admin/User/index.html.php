@@ -6,7 +6,7 @@
 <?php foreach($list as $row): ?>
   <tr>
       <td><?=$row['id']?></td>
-      <td><?=$row['name']?></td>
+      <td><?=$row['nombre']?></td>
   </tr>
 <?php endforeach ?>
 </table>
