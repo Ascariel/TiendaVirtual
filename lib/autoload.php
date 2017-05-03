@@ -1,9 +1,9 @@
 <?php
 
-spl_autoload_register(function() {
-    $filename = "../config/config.php";
-    include_once($filename);
-});
+#spl_autoload_register(function() {
+#    $filename = "../config/config.php";
+#    include_once($filename);
+#});
 
 spl_autoload_register(function ($lib) {
     $classname = str_replace('MVC\\','',$lib);
