@@ -7,7 +7,7 @@ class AppKernel {
   private $action = 'index';
 
   public function __construct(){
-    $path = explode('/',$_SERVER['PATH_INFO']);
+    $path = explode('/',@$_SERVER['PATH_INFO']);
     $this->module = ucfirst(isset($path[1])?$path[1]:'root');
     $this->controller = ucfirst(isset($path[2])?$path[2]:'default');
     $this->action=(isset($path[3])?$path[3]:'index');
@@ -16,12 +16,14 @@ class AppKernel {
   protected function loadAction(){
     $class = "Controller\\{$this->module}\\{$this->controller}Controller";
     $method = "{$this->action}Action";
+    $this->template = $class::$template;
     return $class::$method();
   }
 
   protected function loadView($action){
     extract($action);
-    include "../view/$this->module/$this->controller/$this->action.html.php";
+    $this->view = "../view/$this->module/$this->controller/$this->action.html.php";
+    include('../view/'. $this->template);
   }
 
   public function run(){
