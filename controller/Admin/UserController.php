@@ -23,4 +23,9 @@ class UserController {
 
       return [];
     }
+
+    function signupAction(){
+
+      return [];
+    }
 }
