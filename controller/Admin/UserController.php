@@ -5,7 +5,7 @@ use Model\Company;
 use Model\User;
 
 class UserController {
-    static $template = 'Layout/base.html.php';
+    #static $template = 'Layout/base.html.php';
 
     function indexAction() {
       $otro = $_GET['otro'];

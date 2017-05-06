@@ -16,28 +16,40 @@ class AppKernel {
   protected function loadAction(){
     $class = "Controller\\{$this->module}\\{$this->controller}Controller";
     $method = "{$this->action}Action";
-    $this->template = $class::$template;
+    if(!class_exists($class) || !method_exists($class, $method) ){
+        throw new NotFoundException;
+    }
+    if(property_exists($class, 'template')){
+        $this->template = $class::$template;
+    }
     return $class::$method();
   }
 
   protected function loadView($action){
-    extract($action);
+    if(!empty($action)){
+        extract($action);
+    }
     $this->view = "../view/$this->module/$this->controller/$this->action.html.php";
-    include('../view/'. $this->template);
+    $render = $this->view;
+    if(isset($this->template)){
+        $render = '../view/'. $this->template;
+    }
+    include($render);
   }
 
   public function run(){
     try {
         $this->loadView($this->loadAction());
+    } catch(NotFoundException $e){
+        echo "404 - Not Found";
     } catch(\Exception $e) {
         echo "<pre>";
         echo '<h1>Exception:</h2>';
         echo '<h2>',$e->getMessage(),'</h2>';
         echo '<h2>Trace:</h2>';
         foreach($e->getTrace() as $trace){
-                //$args = implode(', ', $trace['args']);
-                $args = str_replace(["\n",'  '],['',''],print_r($trace['args'],true));
-                echo "$trace[file]:$trace[line] $trace[class]::$trace[function]($args)<br/>";
+            $args = str_replace(["\n",'  '],['',''],print_r($trace['args'],true));
+            echo "$trace[file]:$trace[line] $trace[class]::$trace[function]($args)<br/>";
         }
         echo "</pre>";
     }
