@@ -12,9 +12,7 @@ class SignupController {
 
 
     function userSignupAction(){
-      $_SESSION["nombre"] = $_POST["nombre"];
-      $_SESSION["apellido"] = $_POST["apellido"];
-      $_SESSION["email"] = $_POST["email"];      
+      if(empty($_SESSION['user'])) $_SESSION['user'] = $_POST;
 
       return [];
     }

@@ -18,7 +18,7 @@
 			        <span class="icon-bar"></span>
 			      </button>
 
-			      <a class="navbar-brand pull-right	" href="/">LaTienda</a> 
+			      <a class="navbar-brand pull-right	" href="/">LaTienda</a>
 			      <a href="/">
 			      	<img style="height:50px" src="/images/logo3.png">
 			      </a>
@@ -32,16 +32,16 @@
 			        <li><a href="#">FAQ</a></li>
 			        <li><a href="#">Contacto</a></li>
 
-			        <?php if($_SESSION["nombre"] ): ?>
+			        <?php if(!empty($_SESSION['user'])): ?>
 			        	<li><a href="">
-									<?php if($_SESSION["nombre"]): ?>			
-										<?php echo "Bienvenido ".$_SESSION["email"]; ?>
-									<?php endif; ?>			        		
+									<?php if($_SESSION['user']["nombre"]): ?>
+										<?php echo "Bienvenido ".$_SESSION['user']["email"]; ?>
+									<?php endif; ?>
 			        	</a></li>
 			        	<li><a href="/shop/logout/userLogout">Cerrar Sesion</a></li>
 			        <?php else: ?>
 				        <li><a href="/shop/signup">Registrarse</a></li>
-				        <li><a href="#">Login</a></li>			        	
+				        <li><a href="#">Login</a></li>
 				      <?php endif; ?>
 
 
@@ -49,14 +49,14 @@
 			    </div><!-- /.navbar-collapse -->
 
 			  </div>
-			</nav>    
+			</nav>
 
 				<div class="container">
 					<div class="row">
-						<?php @include($this->view) ?>		
+						<?php @include($this->view) ?>
 					</div>
 				</div>
-        
+
         <script src="/js/jquery-3.2.1.min.js"></script>
         <script src="/js/bootstrap.min.js"></script>
     </body>
