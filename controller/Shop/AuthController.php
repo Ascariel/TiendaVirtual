@@ -1,9 +1,10 @@
 <?php
 namespace Controller\Shop;
 
+use Library\Controller;
 use Model\User;
 
-class SignupController {
+class AuthController extends Controller {
     static $template = 'Layout/base.html.php';
 
     function indexAction() {
@@ -13,17 +14,16 @@ class SignupController {
 
     function signupAction(){
       if(empty($_SESSION['user'])) $_SESSION['user'] = $_POST;
-
-      return [];
     }
 
     function signinAction(){
-
-      return [];
+      if(empty($_SESSION['user'])) $_SESSION['user'] = $_POST;
+      $this->redirect('/shop/product');
     }
 
     function logoutAction(){
       unset($_SESSION);
+      session_destroy();
       $this->redirect('/shop/product');
     }
 }
