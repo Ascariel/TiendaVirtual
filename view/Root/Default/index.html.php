@@ -1,1 +1,1 @@
-<h1>It Works! from custom MVC</h1>
+<h1 class="text-center" >Proximamente... HomePage </h1>
