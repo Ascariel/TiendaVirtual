@@ -35,7 +35,7 @@ class ProductController extends Controller {
     function verCarroAction(){
         //session;
         return [
-            'title'=>"La Tienda > Carro de Compras"
+            'title'=>"La Tienda > Carro de Compras",
             'products'=>[],
         ];
     }
