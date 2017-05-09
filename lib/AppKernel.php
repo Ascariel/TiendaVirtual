@@ -7,6 +7,7 @@ class AppKernel {
   private $action = 'index';
 
   public function __construct(){
+    session_start();
     $path = explode('/',@$_SERVER['PATH_INFO']);
     $this->module = ucfirst(!empty($path[1])?$path[1]:'root');
     $this->controller = ucfirst(!empty($path[2])?$path[2]:'default');
