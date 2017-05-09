@@ -11,9 +11,19 @@ class SignupController {
     }
 
 
-    function userSignupAction(){
+    function signupAction(){
       if(empty($_SESSION['user'])) $_SESSION['user'] = $_POST;
 
       return [];
+    }
+
+    function signinAction(){
+
+      return [];
+    }
+
+    function logoutAction(){
+      unset($_SESSION);
+      $this->redirect('/shop/product');
     }
 }

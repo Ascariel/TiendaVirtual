@@ -38,10 +38,10 @@
 										<?php echo "Bienvenido ".$_SESSION['user']["email"]; ?>
 									<?php endif; ?>
 			        	</a></li>
-			        	<li><a href="/shop/logout/userLogout">Cerrar Sesion</a></li>
+			        	<li><a href="/shop/auth/logout">Cerrar Sesion</a></li>
 			        <?php else: ?>
-				        <li><a href="/shop/signup">Registrarse</a></li>
-				        <li><a href="#">Login</a></li>
+				        <li><a href="/shop/auth/signup">Registrarse</a></li>
+				        <li><a href="/shop/auth/signin">Login</a></li>
 				      <?php endif; ?>
 
 

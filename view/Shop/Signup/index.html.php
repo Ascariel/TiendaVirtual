@@ -5,7 +5,7 @@
       <h1 class="text-center">Registrar Usuarios</h1>
       <br>
 
-      <form action="/shop/signup/userSignup" method="POST">
+      <form action="/shop/auth/signup" method="POST">
         <div class="form-group">
           Nombre <input type="text" required name="nombre" class="form-control ">
         </div>
@@ -23,7 +23,7 @@
             <button class="btn btn-success btn-block">Registrar Usuario</button>
           </div>
           <div class="col-md-6">
-            <a class="btn btn-default btn-block" href="/">Volver</a>
+            <a class="btn btn-default btn-block" href="/shop/product">Volver</a>
           </div>
         </div>
 
