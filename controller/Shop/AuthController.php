@@ -8,15 +8,30 @@ class AuthController extends Controller {
     static $template = 'Layout/base.html.php';
 
     function indexAction() {
-    	return ['title'=> "Registro Usuarios"];
+    	$this->redirect('/shop/auth/signin');
     }
 
 
     function signupAction(){
-      if(empty($_SESSION['user'])) $_SESSION['user'] = $_POST;
+      return [
+          'title'=> "Registro Usuarios",
+          'post'=> 'doSignup',
+      ];
     }
 
     function signinAction(){
+      return [
+          'title'=> "Ingreso de Usuarios",
+          'post'=> 'doSignin',
+      ];
+    }
+
+    function doSignupAction(){
+        if(empty($_SESSION['user'])) $_SESSION['user'] = $_POST;
+        $this->redirect('/shop/product');
+    }
+
+    function doSigninAction(){
       if(empty($_SESSION['user'])) $_SESSION['user'] = $_POST;
       $this->redirect('/shop/product');
     }
