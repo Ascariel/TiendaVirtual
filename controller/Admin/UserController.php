@@ -1,14 +1,16 @@
 <?php
 namespace Controller\Admin;
 
+use Library\Controller;
 use Model\Company;
 use Model\User;
 
-class UserController {
-    #static $template = 'Layout/base.html.php';
+
+class UserController extends Controller {
+    static $template = 'Layout/base.html.php';
 
     function indexAction() {
-      $otro = $_GET['otro'];
+      $otro = $this->get('otro');
       $company = new Company;
       $user = new User;
       #$user->create(['nombre'=>'katherine']);

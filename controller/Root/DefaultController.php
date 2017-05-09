@@ -1,11 +1,15 @@
 <?php
 namespace Controller\Root;
 
-class DefaultController {
-	static $template = 'Layout/base.html.php';
+use Library\Controller;
+
+class DefaultController extends Controller {
+  static $template ='Layout/base.html.php';
 
   public function indexAction(){
-  	return ['title'=> "Tienda Virtual"];
+    if(!$this->isGET()) $this->redirect("/404");
+
+    return ['title'=>'Index'];
   }
 
 }
