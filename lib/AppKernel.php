@@ -8,9 +8,9 @@ class AppKernel {
 
   public function __construct(){
     $path = explode('/',@$_SERVER['PATH_INFO']);
-    $this->module = ucfirst(isset($path[1])?$path[1]:'root');
-    $this->controller = ucfirst(isset($path[2])?$path[2]:'default');
-    $this->action=(isset($path[3])?$path[3]:'index');
+    $this->module = ucfirst(!empty($path[1])?$path[1]:'root');
+    $this->controller = ucfirst(!empty($path[2])?$path[2]:'default');
+    $this->action=(!empty($path[3])?$path[3]:'index');
   }
 
   protected function loadAction(){
@@ -22,7 +22,7 @@ class AppKernel {
     if(property_exists($class, 'template')){
         $this->template = $class::$template;
     }
-    return $class::$method();
+    return (new $class)->$method();
   }
 
   protected function loadView($action){
