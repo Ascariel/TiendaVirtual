@@ -5,6 +5,6 @@
         <strong><?=$product['name']?></strong>
         <p><?=$product['descripcion']?></p>
         <a href="/shop/product/show?id=<?=$product['id']?>">Ver Producto</a>
-        <a href="javascritp:void(0);" class="add-to-cart" rel="<?=$product['id']?>">Agregar al Carro</a>
+        <a href="javascript:void(0);" class="add-to-cart" rel="<?=$product['id']?>">Agregar al Carro</a>
     </div>
 <?php endforeach?>
