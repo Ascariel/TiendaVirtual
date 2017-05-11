@@ -21,10 +21,7 @@ abstract class Controller {
     }
 
     function isXmlHttpRequest(){
-        $headers = apache_request_headers();
-        $xhr = (isset($headers['X-Requested-With']))?$headers['X-Requested-With']:null;
-
-        return 'XMLHttpRequest' == $xhr;
+        return in_array('XMLHttpRequest', array_values(apache_request_headers()));
     }
 
     function redirect($path){
