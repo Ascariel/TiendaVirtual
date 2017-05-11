@@ -26,12 +26,16 @@ class ProductController extends Controller {
     }
 
     //agrera un producto al carro de compras
-    function agregarAlCarroAction(){
+    function addCartAction(){
         if(!$this->isXmlHttpRequest()) $this->redirect('/shop/product');
 
-        $product = (int)$this->post('product');
-        $product['id'];
-        echo json_encode(['message'=>'OK']); exit;
+        $product = $this->post('product');
+        if(!isset($_SESSION['cart'])) $_SESSION['cart']=[];
+        if(!isset($_SESSION['cart'][$product['id']])){
+                $_SESSION['cart'][$product['id']] = 0;
+        }
+        $_SESSION['cart'][$product['id']] += (int)$product['quantity'];
+        echo json_encode(['message'=>'Producto agregado al carro con exito.']); exit;
     }
 
     //ver el carro de compras
