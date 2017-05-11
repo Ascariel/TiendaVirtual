@@ -2,7 +2,7 @@
 namespace Controller\Shop;
 
 use Library\Controller;
-use Model\User;
+use Model\Entity\User;
 
 class AuthController extends Controller {
     static $template = 'Layout/base.html.php';

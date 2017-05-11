@@ -2,7 +2,7 @@
 namespace Controller\Shop;
 
 use Library\Controller;
-use Model\Product;
+use Model\Entity\Product;
 
 class ProductController extends Controller {
     static $template ='Layout/base.html.php';
@@ -10,7 +10,7 @@ class ProductController extends Controller {
     function indexAction(){
         return [
             'title'=>"La Tienda > Home",
-            'products'=>  (new Product)->getAllproducts(),
+            'products'=>(new Product)->getAllproducts(),
         ];
     }
 
@@ -19,7 +19,10 @@ class ProductController extends Controller {
         $id = (int)$this->get('id');
         $product = (new Product)->getOneProductById($id);
 
-        return ['title'=>"La Tienda > Productos > $product[nombre]"];
+        return [
+            'title'=>"La Tienda > Productos > $product[name]",
+            'product'=>$product,
+        ];
     }
 
     //agrera un producto al carro de compras
