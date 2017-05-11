@@ -32,6 +32,7 @@
 			      <ul class="nav navbar-nav navbar-right">
 			        <li><a href="#">FAQ</a></li>
 			        <li><a href="#">Contacto</a></li>
+                    <li><a href="/shop/product/showCart">Ver Carro</a></li>
 
 			        <?php if(!empty($_SESSION['user'])): ?>
 			        	<li><a href="">
