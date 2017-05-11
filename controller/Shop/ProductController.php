@@ -30,20 +30,38 @@ class ProductController extends Controller {
         if(!$this->isXmlHttpRequest()) $this->redirect('/shop/product');
 
         $product = $this->post('product');
+        $id = (int)$product['id'];
+        $quantity = (int)$product['quantity'];
+
         if(!isset($_SESSION['cart'])) $_SESSION['cart']=[];
-        if(!isset($_SESSION['cart'][$product['id']])){
-                $_SESSION['cart'][$product['id']] = 0;
+        if(!isset($_SESSION['cart'][$id])){
+                $product = (new Product)->getOneProductById($id);
+                $product['quantity'] = 0;
+                unset($product['stock'], $product['description']);
+                $_SESSION['cart'][$id] = $product;
         }
-        $_SESSION['cart'][$product['id']] += (int)$product['quantity'];
+        $_SESSION['cart'][$id]['quantity'] += $quantity;
         echo json_encode(['message'=>'Producto agregado al carro con exito.']); exit;
+    }
+
+    function updateCartAction(){
+        $product = $this->post('product');
+        $id = (int)$product['id'];
+        $quantity = (int)$product['quantity'];
+        if(isset($_SESSION['cart'][$id])){
+            $_SESSION['cart'][$id]['quantity'] = $quantity;
+        }
+        echo json_encode(['message'=>'Carro actualizado con exito.']); exit;
     }
 
     //ver el carro de compras
     function verCarroAction(){
         //session;
+        $products = [];
+
         return [
             'title'=>"La Tienda > Carro de Compras",
-            'products'=>[],
+            'cart'=>$_SESSION['cart'],
         ];
     }
 

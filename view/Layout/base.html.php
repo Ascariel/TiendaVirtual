@@ -3,6 +3,7 @@
     <head>
         <title><?=$title?></title>
         <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     </head>
     <body>

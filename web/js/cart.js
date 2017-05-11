@@ -14,6 +14,24 @@ $(function(){
             success:function(response){
                 alert(response.message);
             }
-        })
+        });
+    });
+    $('a.update-cart').on('click',function(){
+        var rel = $(this).attr('rel');
+        var quantity = $(this).siblings('input').val();
+        $.ajax({
+            url:'/shop/product/updateCart',
+            type:'POST',
+            data:{
+                'product':{
+                    'id': rel,
+                    'quantity':quantity
+                }
+            },
+            dataType:'json',
+            success:function(response){
+                alert(response.message);
+            }
+        });
     });
 });
