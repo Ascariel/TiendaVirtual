@@ -16,8 +16,12 @@
         <td><?=$product['price']?></td>
         <td><?=$product['price'] * $product['quantity']?></td>
         <td>
-            <input type="number" size="2" value="<?=$product['quantity']?>" min="1" max="10" />
-            <a class="btn btn-default update-cart" rel="<?=$product['id']?>"><i class="fa fa-refresh"></i></a>
+            <div class="col-md-3">
+                <div class="input-group">
+                    <input type="number" class="form-control" value="<?=$product['quantity']?>" min="1" max="10" />
+                    <a class="input-group-addon btn btn-default update-cart" rel="<?=$product['id']?>"><i class="fa fa-refresh"></i></a>
+                </div>
+            </div>
         </td>
     </tr>
     <?php $suma+=$product['price'] * $product['quantity'];?>

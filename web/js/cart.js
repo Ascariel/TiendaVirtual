@@ -30,7 +30,7 @@ $(function(){
             },
             dataType:'json',
             success:function(response){
-                alert(response.message);
+                location.reload();
             }
         });
     });
