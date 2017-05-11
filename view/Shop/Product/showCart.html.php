@@ -40,7 +40,7 @@
         <tr>
             <td colspan="4">Total</td>
             <td><?=$suma * 1.19?></td>
-            <td><button class="btn btn-success">Comprar</button></td>
+            <td><button class="btn btn-success">Pagar</button> <a  href="/shop/product" class="btn btn-default">Comprar algo más</a></td>
         </tr>
     </tfoot>
 </table>
