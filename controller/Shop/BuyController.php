@@ -24,7 +24,7 @@ class BuyController extends Controller {
 
     function verifyAction(){
         if(!$this->isPOST()) $this->redirect('/shop/buy/auth');
-
+        $_SESSION['user']['id'] = 1; //dummy
         $this->redirect('/shop/buy');
     }
 

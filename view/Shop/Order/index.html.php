@@ -1,7 +1,7 @@
 <h1>Listado de Ordenes</h1>
 <table class="table">
     <tr>
-        <th>ID</th>
+        <th>Numero de Orden</th>
         <th>Estado</th>
         <th>Fecha de pedido</th>
         <th></th>
@@ -9,9 +9,9 @@
 <?php foreach($orders as $order):?>
     <tr>
         <td><?=$order['id']?></td>
-        <td><?=$order['status']?></td>
+        <td><?=$status[$order['status']]?></td>
         <td><?=$order['created_at']?></td>
-        <td><a href="#" lass="btn btn-default">ver detalle</a></td>
+        <td><a href="/shop/order/details?id=<?=$order['id']?>" lass="btn btn-default">ver detalle</a></td>
     </tr>
 <?php endforeach?>
 </table>

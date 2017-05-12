@@ -1,4 +1,9 @@
 <h1>Carro de compras</h1>
+<?php if(empty($cart)):?>
+    <h3>No hay productos en el carro</h3>
+    <a  href="/shop/product" class="btn btn-default">Comprar en la tienda</a>
+    <?return;?>
+<?php endif; ?>
 <table class="table">
     <tr>
         <th>ID</th>
@@ -16,7 +21,7 @@
         <td><?=$product['price']?></td>
         <td><?=$product['price'] * $product['quantity']?></td>
         <td>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="input-group">
                     <input type="number" class="form-control" value="<?=$product['quantity']?>" min="1" max="10" />
                     <a class="input-group-addon btn btn-default update-cart" rel="<?=$product['id']?>"><i class="fa fa-refresh"></i></a>

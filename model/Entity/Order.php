@@ -23,10 +23,10 @@ class Order extends Repository {
         $sqlAllOders = "
             SELECT
                 o.id, o.status, o.created_at
-            FROM order o
+            FROM $this->table o
             WHERE o.user_id=:user_id
         ";
-        $sqlAllOders = str_replace(':user_id', (int)$userId, $sqlOderDetail);
+        $sqlAllOders = str_replace(':user_id', (int)$userId, $sqlAllOders);
 
         return $this->customQuery($sqlAllOders);
     }
