@@ -9,10 +9,23 @@ class BuyController extends Controller {
     static $template ='Layout/base.html.php';
 
     function indexAction(){
-        //debe mostrar la seleccion de tarjeta de credito
+        //debe verificar si el usuario esta en session.
+        if(!isset($_SESSION['user']['id'])){
+            $this->redirect('/shop/buy/auth');
+        }
         return [
             'title'=>"La Tienda > Proceso de Compra",
         ];
+    }
+
+    function authAction(){
+        return [];
+    }
+
+    function verifyAction(){
+        if(!$this->isPOST()) $this->redirect('/shop/buy/auth');
+
+        $this->redirect('/shop/buy');
     }
 
     function paymentAction(){
@@ -49,7 +62,7 @@ class BuyController extends Controller {
         $order->create([
             'status'=>1,
             'created_at'=>(new \DateTime())->format('Y-m-d H:i:s'),
-            'user'=>1,
+            'user_id'=>$_SESSION['user']['id'],
         ]);
         $orderId = $order->getLastId();
         $detail = new OrderDetail;

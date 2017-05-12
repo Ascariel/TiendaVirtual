@@ -28,11 +28,13 @@ class AuthController extends Controller {
 
     function doSignupAction(){
         if(empty($_SESSION['user'])) $_SESSION['user'] = $_POST;
+        $_SESSION['user']['id']=1;
         $this->redirect('/shop/product');
     }
 
     function doSigninAction(){
       if(empty($_SESSION['user'])) $_SESSION['user'] = $_POST;
+      $_SESSION['user']['id']=1;
       $this->redirect('/shop/product');
     }
 
