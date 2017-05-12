@@ -29,8 +29,6 @@ class BuyController extends Controller {
         $email = $auth['email'];
         $pwd = $auth['password'];
         $email = str_replace("'","\'", $email);
-        $vcard = null;
-        $address = null;
         $user = new User;
 
         $exists = $user->select(['id','password','email', 'fullname', 'is_admin'], "email='$email'")->fetch();
@@ -43,8 +41,8 @@ class BuyController extends Controller {
                 'email'=>$email,
                 'password'=>sha1($pwd),
                 'is_admin'=>false,
-                'vcard'=>(false?$vcard:null),
-                'address'=>(false?$address:null),
+                'vcard'=>null,
+                'address'=>null,
             ];
             $user->create($exists);
             $exists['id']=$user->getLastId();
@@ -72,8 +70,18 @@ class BuyController extends Controller {
 
     function paymentAction(){
         if(!$this->isPOST()) $this->redirect('/shop/buy');
-        $_SESSION['payment'] = $this->post('pay');
+        $payment = $this->post('pay');
         //guardar detalles del usuario en session.
+        $vcard = null;
+        $address = null;
+        if((int)$payment['type'] == 1){
+            $vcard = $payment['vcard'];
+        }
+        if((int)$payment['delivery'] == 2){
+            $address = $payment['address'];
+        }
+        (new User)->update((int)$_SESSION['user']['id'], ['vcard'=>$vcard,'address'=>$address]);
+        $_SESSION['payment'] = $payment;
         $this->redirect('/shop/buy/summary');
     }
 
@@ -85,8 +93,8 @@ class BuyController extends Controller {
             $sum += $item['price'] * $item['quantity'];
         }
         $total = $sum * 1.19 + ($payment['delivery']==2?1000:0);
-        $type = $payment['type']==1?'Pago en Linea (TC)':'Pago en tienda';
-        $delivery = $payment['delivery']==1?'Retiro en Tienda':'Despacho Domicilio';
+        $type = ($payment['type']==1?'Pago en Linea (TC) N°:':'Pago en tienda');
+        $delivery = ($payment['delivery']==1 || $payment['type']==2?'Retiro en Tienda':'Despacho Domicilio');
         $address = ($payment['delivery']==2?$payment['address']:null);
 
         return [

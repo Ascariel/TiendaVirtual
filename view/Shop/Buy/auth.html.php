@@ -26,5 +26,5 @@
           </label>
         </div>
     </div>
-    <button type="submit">Continuar</button>
+    <button type="submit" class="btn btn-success">Continuar</button>
 </form>

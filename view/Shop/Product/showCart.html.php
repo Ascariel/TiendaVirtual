@@ -2,8 +2,7 @@
 <?php if(empty($cart)):?>
     <h3>No hay productos en el carro</h3>
     <a  href="/shop/product" class="btn btn-default">Comprar en la tienda</a>
-    <?return;?>
-<?php endif; ?>
+<?php else: ?>
 <table class="table">
     <tr>
         <th>ID</th>
@@ -49,3 +48,4 @@
         </tr>
     </tfoot>
 </table>
+<?php endif; ?>

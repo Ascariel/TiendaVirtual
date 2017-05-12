@@ -39,8 +39,7 @@ class AuthController extends Controller {
     }
 
     function logoutAction(){
-      unset($_SESSION);
-      session_destroy();
+      unset($_SESSION['user']);
       $this->redirect('/shop/product');
     }
 }

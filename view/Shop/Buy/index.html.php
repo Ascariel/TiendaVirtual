@@ -4,7 +4,7 @@
     <h3>Seleccione medio de pago</h3>
     <div class="radio">
       <label>
-        <input class="payment" rel="vcard" type="radio" name="pay[type]" value="1" checked>
+        <input class="payment" rel="vcard" type="radio" name="pay[type]" value="1" checked="checked"/>
         Pago en Linea (TC)
       </label>
     </div>
@@ -15,7 +15,7 @@
     </div>
     <div class="radio">
       <label>
-        <input class="payment" rel="store" type="radio" name="pay[type]" value="2">
+        <input class="payment" rel="store" type="radio" name="pay[type]" value="2"/>
         Pago en tienda
       </label>
     </div>
@@ -23,13 +23,13 @@
         <h3>Seleccione modo de entrega</h3>
         <div class="radio">
           <label>
-            <input class="delivery" rel="store" type="radio" name="pay[delivery]" value="1">
+            <input class="delivery" rel="store" type="radio" name="pay[delivery]" value="1"/>
             Retiro en Tienda
           </label>
         </div>
         <div class="radio">
           <label>
-            <input class="delivery" rel="address" type="radio" name="pay[delivery]" value="2" checked>
+            <input class="delivery" rel="address" type="radio" name="pay[delivery]" value="2" checked="checked"/>
             Despacho Domicilio ($1.000)
           </label>
         </div>
