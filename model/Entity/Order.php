@@ -2,7 +2,8 @@
 namespace Model\Entity;
 
 use Library\Repository;
-use OrderDetail;
+use Library\Database;
+
 class Order extends Repository {
     protected $table = 'cash_order';
 
@@ -16,5 +17,21 @@ class Order extends Repository {
         $sqlOderDetail = str_replace(':order_id', (int)$orderId, $sqlOderDetail);
 
         return $this->customQuery($sqlOderDetail);
+    }
+
+    public function getAllOrderForUser($userId){
+        $sqlAllOders = "
+            SELECT
+                o.id, o.status, o.created_at
+            FROM order o
+            WHERE o.user_id=:user_id
+        ";
+        $sqlAllOders = str_replace(':user_id', (int)$userId, $sqlOderDetail);
+
+        return $this->customQuery($sqlAllOders);
+    }
+
+    public function getLastId(){
+        return $this->database->getConnection()->lastInsertId();
     }
 }

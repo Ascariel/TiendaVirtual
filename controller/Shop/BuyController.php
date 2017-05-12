@@ -39,6 +39,7 @@ class BuyController extends Controller {
             'type'=>$type,
             'delivery'=>$delivery,
             'address'=>$address,
+            'title'=>"La Tienda > Detalle de Compra",
         ];
     }
 
@@ -67,5 +68,8 @@ class BuyController extends Controller {
     function successAction(){
         //compra realizada con exito.
         //dar opcion de ver las ordenes
+        return [
+            'title'=>"La Tienda > Compra Exitosa",
+        ];
     }
 }

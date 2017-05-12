@@ -5,7 +5,7 @@ class Repository {
   protected $table = NULL;
   protected $manager = NULL;
 
-  private $database = NULL;
+  protected $database = NULL;
 
   public function __construct($table=null,$manager=null){
     if(NULL === $table) $table = strtolower(basename(str_replace('\\','/',get_class($this))));
