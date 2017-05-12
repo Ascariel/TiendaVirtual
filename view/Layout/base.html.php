@@ -35,9 +35,9 @@
 			    <!-- Collect the nav links, forms, and other content for toggling -->
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			      <ul class="nav navbar-nav navbar-right">
+			      <li><a href="/shop/product">Productos</a></li>
 			        <li><a href="/admin/category">Categorias</a></li>
 			        <li><a href="/admin/category/new">Crear Categoria</a></li>
-			        <li><a href="#">Contacto</a></li>
                     <li><a href="/shop/product/showCart">Ver Carro</a></li>
 
 			        <?php if(!empty($_SESSION['user'])): ?>

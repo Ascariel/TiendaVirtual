@@ -59,7 +59,7 @@ class Repository {
     return $conn->query($sql, \PDO::FETCH_ASSOC);
   }
 
-  protected function customQuery($sql) {
+  public function customQuery($sql) {
     $conn = $this->database->getConnection();
     return $conn->query($sql);
   }

@@ -8,7 +8,7 @@ class Product extends Repository {
 
   public function getAllproducts(){
       return $this->select(
-          ['id', 'name', 'image', 'price'],
+          ['id', 'category_id', 'name', 'image', 'price'],
           'status=1'
       );
   }
