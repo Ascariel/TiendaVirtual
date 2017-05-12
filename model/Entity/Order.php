@@ -30,8 +30,4 @@ class Order extends Repository {
 
         return $this->customQuery($sqlAllOders);
     }
-
-    public function getLastId(){
-        return $this->database->getConnection()->lastInsertId();
-    }
 }

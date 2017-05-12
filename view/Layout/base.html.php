@@ -41,18 +41,12 @@
                     <li><a href="/shop/product/showCart">Ver Carro</a></li>
 
 			        <?php if(!empty($_SESSION['user'])): ?>
-			        	<li><a href="">
-									<?php if($_SESSION['user']["nombre"]): ?>
-										<?php echo "Bienvenido ".$_SESSION['user']["email"]; ?>
-									<?php endif; ?>
-			        	</a></li>
+			        	<li><a href="javascript:void(0);">Bienvenido <?=$_SESSION['user']["email"]?></a></li>
 			        	<li><a href="/shop/auth/logout">Cerrar Sesion</a></li>
 			        <?php else: ?>
 				        <li><a href="/shop/auth/signup">Registrarse</a></li>
 				        <li><a href="/shop/auth/signin">Login</a></li>
-				      <?php endif; ?>
-
-
+				    <?php endif; ?>
 			      </ul>
 			    </div><!-- /.navbar-collapse -->
 

@@ -59,6 +59,10 @@ class Repository {
     return $conn->query($sql, \PDO::FETCH_ASSOC);
   }
 
+  public function getLastId(){
+      return $this->database->getConnection()->lastInsertId();
+  }
+
   public function customQuery($sql) {
     $conn = $this->database->getConnection();
     return $conn->query($sql);

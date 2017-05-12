@@ -4,6 +4,7 @@ namespace Controller\Shop;
 use Library\Controller;
 use Model\Entity\Order;
 use Model\Entity\OrderDetail;
+use Model\Entity\User;
 
 class BuyController extends Controller {
     static $template ='Layout/base.html.php';
@@ -24,7 +25,48 @@ class BuyController extends Controller {
 
     function verifyAction(){
         if(!$this->isPOST()) $this->redirect('/shop/buy/auth');
-        $_SESSION['user']['id'] = 1; //dummy
+        $auth = $this->post('auth');
+        $email = $auth['email'];
+        $pwd = $auth['password'];
+        $email = str_replace("'","\'", $email);
+        $vcard = null;
+        $address = null;
+        $user = new User;
+
+        $exists = $user->select(['id','password','email', 'fullname', 'is_admin'], "email='$email'")->fetch();
+        if(empty($exists)) {
+            if((int)$auth['method'] != 2) {
+                $_SESSION['message']='Usuario o password invalido!';
+                $this->redirect('/shop/buy/auth');
+            }
+            $exists = [
+                'email'=>$email,
+                'password'=>sha1($pwd),
+                'is_admin'=>false,
+                'vcard'=>(false?$vcard:null),
+                'address'=>(false?$address:null),
+            ];
+            $user->create($exists);
+            $exists['id']=$user->getLastId();
+        } else {
+            if((bool)(int)$exists['is_admin']){
+                $_SESSION['message']='Usuario o password invalido!';
+                unset($exists);
+                $this->redirect('/shop/buy/auth');
+            }
+
+            if((int)$auth['method'] != 1){
+                $_SESSION['message']='Usuario o password invalido!';
+                unset($exists);
+                $this->redirect('/shop/buy/auth');
+            }
+            if($exists['password'] !== sha1($pwd)){
+                $_SESSION['message']='Usuario o password invalido!';
+                unset($exists);
+                $this->redirect('/shop/buy/auth');
+            }
+        }
+        $_SESSION['user'] = $exists;
         $this->redirect('/shop/buy');
     }
 
