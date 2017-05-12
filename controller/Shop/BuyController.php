@@ -71,7 +71,6 @@ class BuyController extends Controller {
     function paymentAction(){
         if(!$this->isPOST()) $this->redirect('/shop/buy');
         $payment = $this->post('pay');
-        //guardar detalles del usuario en session.
         $vcard = null;
         $address = null;
         if((int)$payment['type'] == 1){
@@ -129,8 +128,6 @@ class BuyController extends Controller {
     }
 
     function successAction(){
-        //compra realizada con exito.
-        //dar opcion de ver las ordenes
         return [
             'title'=>"La Tienda > Compra Exitosa",
         ];
