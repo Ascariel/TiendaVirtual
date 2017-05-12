@@ -5,6 +5,11 @@
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs-3.3.7/dt-1.10.15/datatables.min.css"/>
+
+	    <!-- TEMPORAL, LLEVAR AL FINAL DEL ARCHIVO -->
+	    <script src="/js/jquery-3.2.1.min.js"></script>
+	    <script type="text/javascript" src="/js/datatables.min.js"></script>
     </head>
     <body>
 
@@ -30,7 +35,8 @@
 			    <!-- Collect the nav links, forms, and other content for toggling -->
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			      <ul class="nav navbar-nav navbar-right">
-			        <li><a href="#">FAQ</a></li>
+			        <li><a href="/admin/category">Categorias</a></li>
+			        <li><a href="/admin/category/new">Crear Categoria</a></li>
 			        <li><a href="#">Contacto</a></li>
                     <li><a href="/shop/product/showCart">Ver Carro</a></li>
 
@@ -62,5 +68,6 @@
         <script src="/js/jquery-3.2.1.min.js"></script>
         <script src="/js/bootstrap.min.js"></script>
         <script src="/js/cart.js"></script>
+
     </body>
 </html>
