@@ -63,7 +63,7 @@ class ProductController extends Controller {
     }
 
     //accion de hacer clic en el boton comprar
-    function sellAction(){
+    function buyAction(){
         //si no esta registrado mostrar cuadro de registro
         //le cuadro de registro debe ser AJAX
         //mostrar los detalles de la compra y las opciones de pago
