@@ -37,4 +37,20 @@ class OrderController extends Controller {
             'order'=>$id,
         ];
     }
+
+    function updateOrderStatusAction(){
+        $status = $this->post('status');
+        $order_id = $this->post('order_id');
+
+
+        // $query = ["status=".$status];
+        // $success = (new Order)->update($order_id, $query);
+
+        // ############### MEJORAR SEGURIDAD EVITANDO INJECCION SQL #######
+        $query = "update cash_order set status = $status where id = $order_id;";  
+        $success = (new Order)->customQuery($query); 
+  
+        echo json_encode(['success' => $success, 'status' => $status, 'query'=>$query]); exit;   
+        
+    }
 }
