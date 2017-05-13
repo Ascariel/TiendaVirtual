@@ -11,7 +11,7 @@
 
 	    <!-- TEMPORAL, LLEVAR AL FINAL DEL ARCHIVO -->
 	    <script src="/js/jquery-3.2.1.min.js"></script>
-	    <script type="text/javascript" src="/js/datatables.min.js"></script>
+	    <script src="/js/datatables.min.js"></script>
     </head>
     <body>
 
@@ -39,9 +39,8 @@
 			        <?php if(!empty($_SESSION['user'])): ?>
 			        	
 			        	<?php if ($_SESSION['user']['is_admin'] == 1): ?>
-				        	<!-- <li><a href="/admin/category/new">Crear Categoria</a></li> -->
 				        	<li><a href="/admin/category">Manejar Categorias</a></li>
-				        	<li><a href="/admin/shop/index">Manejar Ordenes</a></li>
+				        	<li><a href="/admin/order">Manejar Ordenes</a></li>
 				        <?php else: ?>
 				        	<li><a href="/shop/product/showCart">Ver Carro</a></li>
 			        	<?php endif ?>
