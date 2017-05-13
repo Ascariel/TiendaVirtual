@@ -40,7 +40,7 @@ class BuyController extends Controller {
             $exists = [
                 'email'=>$email,
                 'password'=>sha1($pwd),
-                'is_admin'=>false,
+                'is_admin'=>'0',
                 'vcard'=>null,
                 'address'=>null,
             ];

@@ -28,7 +28,7 @@ class OrderController extends Controller {
     function detailsAction(){
         $id = (int)$this->get('id');
         $details = (new Order)->getOrderDetails($id)->fetchAll();
-        
+
         return [
             'details'=>$details,
             'order'=>$id,

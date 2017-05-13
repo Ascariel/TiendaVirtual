@@ -44,8 +44,17 @@
         <tr>
             <td colspan="4">Total</td>
             <td><?=$suma * 1.19?></td>
-            <td><a href="/shop/buy" class="btn btn-success">Pagar</a> <a  href="/shop/product" class="btn btn-default">Comprar algo más</a></td>
+            <td></td>
         </tr>
     </tfoot>
 </table>
+<div class="row">
+  <div class=""></div>
+  <div class="col-xs-offset-8 col-sm-offset-8 col-md-offset-8 col-lg-offset-8 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+    <a href="/shop/buy" class="btn btn-success">Pagar</a>
+  </div>
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+    <a href="/shop/product" class="btn btn-default">Comprar algo más</a>
+  </div>
+</div>
 <?php endif; ?>

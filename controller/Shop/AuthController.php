@@ -38,7 +38,7 @@ class AuthController extends Controller {
         $exists = [
             'email'=>$email,
             'password'=>sha1($auth['password']),
-            'is_admin'=>false,
+            'is_admin'=>0,
             'vcard'=>null,
             'address'=>null,
         ];

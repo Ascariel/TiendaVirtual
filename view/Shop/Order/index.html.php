@@ -11,7 +11,7 @@
         <td><?=$order['id']?></td>
         <td><?=$status[$order['status']]?></td>
         <td><?=$order['created_at']?></td>
-        <td><a href="/shop/order/details?id=<?=$order['id']?>" lass="btn btn-default">ver detalle</a></td>
+        <td><a href="/shop/order/details?id=<?=$order['id']?>" class="btn btn-success">ver detalle</a></td>
     </tr>
 <?php endforeach?>
 </table>

@@ -3,6 +3,8 @@
     <head>
         <title><?=$title?></title>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
         <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 	    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs-3.3.7/dt-1.10.15/datatables.min.css"/>
@@ -29,9 +31,6 @@
 			      	<img style="height:50px" src="/images/logo3.png">
 			      </a>
 			    </div>
-
-
-
 			    <!-- Collect the nav links, forms, and other content for toggling -->
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			      <ul class="nav navbar-nav navbar-right">
@@ -49,20 +48,14 @@
 				    <?php endif; ?>
 			      </ul>
 			    </div><!-- /.navbar-collapse -->
-
 			  </div>
 			</nav>
-
-				<div class="container">
-					<div class="row">
-						<?php @include($this->view) ?>
-					</div>
-				</div>
-
-        <script src="/js/jquery-3.2.1.min.js"></script>
-        <script src="/js/bootstrap.min.js"></script>
-        <script src="/js/cart.js"></script>
-        <script src="/js/buy.js"></script>
-
+			<div class="container">
+				<?php @include($this->view) ?>
+			</div>
+      <script src="/js/jquery-3.2.1.min.js"></script>
+      <script src="/js/bootstrap.min.js"></script>
+      <script src="/js/cart.js"></script>
+      <script src="/js/buy.js"></script>
     </body>
 </html>
