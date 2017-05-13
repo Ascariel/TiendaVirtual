@@ -56,26 +56,34 @@ class AuthController extends Controller {
         $pwd = $auth['password'];
         $exists = $this->userExists($email);
 
-        if((bool)(int)$exists['is_admin']){
-            $_SESSION['message']='Usuario o password invalido!';
+        if (empty($exists) ) {
+            // User not found
+            $_SESSION['message']='Usuario no registrado';
             unset($exists);
+            unset($_SESSION["is_admin"]);
             $this->redirect('/shop/auth/signin');
         }
-        if($exists['password'] !== sha1($pwd)){
-            $_SESSION['message']='Usuario o password invalido!';
+        elseif ($exists['password'] !== sha1($pwd)) {
+            // Invalid Password
+            $_SESSION['message']='Password invalido!';
             unset($exists);
+            unset($_SESSION["is_admin"]);
             $this->redirect('/shop/auth/signin');
         }
+
         $_SESSION['user'] = $exists;
+        $_SESSION['is_admin'] = (bool)(int)$exists['is_admin'] == 1;
         $this->redirect('/shop/product');
     }
 
     function logoutAction(){
       unset($_SESSION['user']);
+      unset($_SESSION["is_admin"]);
       $this->redirect('/shop/product');
     }
 
     private function userExists($email){
         return (new User)->select(['id','password','email', 'fullname', 'is_admin'], "email='$email'")->fetch();
     }
+
 }

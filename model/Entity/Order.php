@@ -30,4 +30,11 @@ class Order extends Repository {
 
         return $this->customQuery($sqlAllOders);
     }
+
+    public function getAllOrders(){
+      $query = "select * from cash_order;";
+      $rows = (new Order)->customQuery($query);
+      return $rows;
+    
+    }    
 }

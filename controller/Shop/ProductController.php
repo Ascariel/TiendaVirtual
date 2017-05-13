@@ -56,9 +56,14 @@ class ProductController extends Controller {
 
     //ver el carro de compras
     function showCartAction(){
+        $cart = null;
+        if(!empty($_SESSION['cart']) ) {
+            $cart = $_SESSION['cart'];
+        }
+
         return [
             'title'=>"La Tienda > Carro de Compras",
-            'cart'=>$_SESSION['cart'],
+            'cart'=>$cart,
         ];
     }
 
@@ -70,6 +75,11 @@ class ProductController extends Controller {
         $logged = false;
 
         return ['logged'=>$logged];
+    }
+
+    function clearCartAction(){
+        $_SESSION['cart'] = null;
+        $this->redirect('/shop/product/showCart');
     }
 
 }

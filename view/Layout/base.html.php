@@ -35,14 +35,22 @@
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			      <ul class="nav navbar-nav navbar-right">
 			      <li><a href="/shop/product">Productos</a></li>
-			        <li><a href="/admin/category">Categorias</a></li>
-			        <li><a href="/admin/category/new">Crear Categoria</a></li>
-                    <li><a href="/shop/product/showCart">Ver Carro</a></li>
-
+			        
 			        <?php if(!empty($_SESSION['user'])): ?>
-			        	<li><a href="javascript:void(0);">Bienvenido <?=$_SESSION['user']["email"]?></a></li>
+			        	
+			        	<?php if ($_SESSION['user']['is_admin'] == 1): ?>
+				        	<!-- <li><a href="/admin/category/new">Crear Categoria</a></li> -->
+				        	<li><a href="/admin/category">Manejar Categorias</a></li>
+				        	<li><a href="/admin/shop/index">Manejar Ordenes</a></li>
+				        <?php else: ?>
+				        	<li><a href="/shop/product/showCart">Ver Carro</a></li>
+			        	<?php endif ?>
+
+			        	<li><a href="javascript:void(0);"><small><b><?=$_SESSION['user']["email"]?></b></small> </a></li>
 			        	<li><a href="/shop/auth/logout">Cerrar Sesion</a></li>
+
 			        <?php else: ?>
+			        	<li><a href="/shop/product/showCart">Ver Carro</a></li>
 				        <li><a href="/shop/auth/signup">Registrarse</a></li>
 				        <li><a href="/shop/auth/signin">Login</a></li>
 				    <?php endif; ?>
@@ -53,7 +61,7 @@
 			<div class="container">
 				<?php @include($this->view) ?>
 			</div>
-      <script src="/js/jquery-3.2.1.min.js"></script>
+      <!-- <script src="/js/jquery-3.2.1.min.js"></script> -->
       <script src="/js/bootstrap.min.js"></script>
       <script src="/js/cart.js"></script>
       <script src="/js/buy.js"></script>

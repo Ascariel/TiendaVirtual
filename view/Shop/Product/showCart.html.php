@@ -3,7 +3,8 @@
     <h3>No hay productos en el carro</h3>
     <a  href="/shop/product" class="btn btn-default">Comprar en la tienda</a>
 <?php else: ?>
-<table class="table">
+
+<table class="table table-striped table-hover">
     <tr>
         <th>ID</th>
         <th>Imagen</th>
@@ -11,6 +12,7 @@
         <th>Precio Unitario</th>
         <th>Precio</th>
         <th>Cantidad</th>
+
     </tr>
 <?php foreach($cart as $product):?>
     <tr>
@@ -22,39 +24,57 @@
         <td>
             <div class="col-md-4">
                 <div class="input-group">
-                    <input type="number" class="form-control" value="<?=$product['quantity']?>" min="1" max="10" />
+                    <input type="number" class="form-control" value="<?= $product['quantity']?>" min="1" max="10" />
                     <a class="input-group-addon btn btn-default update-cart" rel="<?=$product['id']?>"><i class="fa fa-refresh"></i></a>
                 </div>
             </div>
         </td>
+
     </tr>
     <?php $suma+=$product['price'] * $product['quantity'];?>
 <?php endforeach?>
-    <tfoot>
+    <!-- <tfoot> -->
         <tr>
-            <td colspan="4">Sub Total</td>
+            <td colspan="4"></td>
+            <td></td>
+            <td></td>
+        </tr>    
+        <tr>
+            <td colspan="4"><b>Sub Total</b></td>
             <td><?=$suma?></td>
             <td></td>
         </tr>
         <tr>
-            <td colspan="4">IVA</td>
+            <td colspan="4"><b>IVA</b></td>
             <td><?=$suma * 0.19?></td>
             <td></td>
         </tr>
         <tr>
-            <td colspan="4">Total</td>
+            <td colspan="4"><b>Total</b></td>
             <td><?=$suma * 1.19?></td>
             <td></td>
         </tr>
-    </tfoot>
+    <!-- </tfoot> -->
 </table>
+
+
+ <div class="row">
+    
+    <div class="col-md-2"> <a href="/shop/buy" class="btn btn-success btn-block">Pagar</a> </div>
+    <div class="col-md-2 col-md-offset-4"> <a href="/shop/product" class="btn btn-default btn-block">Comprar algo más</a> </div>
+    <div class="col-md-2"> <a href="/shop/product/clearCart" class="btn btn-danger btn-block">Vaciar Carro</a>
+ </div>
+
+</div>
 <div class="row">
   <div class=""></div>
   <div class="col-xs-offset-8 col-sm-offset-8 col-md-offset-8 col-lg-offset-8 col-xs-2 col-sm-2 col-md-2 col-lg-2">
-    <a href="/shop/buy" class="btn btn-success">Pagar</a>
+   
   </div>
   <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-    <a href="/shop/product" class="btn btn-default">Comprar algo más</a>
+   
   </div>
+
+   
 </div>
 <?php endif; ?>

@@ -11,21 +11,29 @@
                     <th>Precio</th>
 			 		<th>Categoria</th>
                     <th>Imagen</th>
-			 		<th colspan="2"></th>
+			 		<th></th>
+
+			 		<?php if (!$_SESSION['is_admin']): ?>
+			 		 	 <th></th>
+			 		<?php endif ?>			 		
+			 		
 	 			</tr>
 	 		</thead>
 	 		<tbody>
 				<?php foreach($products as $product): ?>
-				<tr>
+					<tr>
 			      <td><?=$product['id']?></td>
 			      <td><?=$product['name']?></td>
 			      <td><?=$product['description']?></td>
-                  <td><?=$product['price']?></td>
+	          <td><?=$product['price']?></td>
 			      <td><?=$product['category'] ?></td>
-                  <td><img width="64px" src="<?=$product['image']?>" /></td>
-		 		  <td><a href="/shop/product/show?id=<?=$product['id']?>" class="btn btn-block btn-sm btn-info">Ver Producto</a>
-		 		  <td><a href="javascript:void(0);" class="add-to-cart btn btn-block btn-sm btn-success" rel="<?=$product['id']?>">Agregar al Carro</a></td>
-				</tr>
+						<td><img width="64px" src="<?=$product['image']?>" /></td>
+		 		  	<td><a href="/shop/product/show?id=<?=$product['id']?>" class="btn btn-block btn-sm btn-info">Ver Producto</a></td>
+
+				 		<?php if (!$_SESSION['is_admin']): ?>
+				 		 	 <td><a href="javascript:void(0);" class="add-to-cart btn btn-block btn-sm btn-success" rel="<?=$product['id']?>">Agregar al Carro</a></td>
+				 		<?php endif ?>
+					</tr>
 			  <?php endforeach ?>
 	 		</tbody>
 	  </table>

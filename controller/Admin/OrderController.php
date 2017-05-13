@@ -1,5 +1,5 @@
 <?php
-namespace Controller\Shop;
+namespace Controller\Admin;
 
 use Library\Controller;
 use Model\Entity\Order;
@@ -9,7 +9,8 @@ class OrderController extends Controller {
 
     function indexAction(){
         $userId = $_SESSION['user']['id'];
-        $orders = (new Order)->getAllOrderForUser($userId);
+
+        $orders = (new Order)->getAllOrders();
 
         $status = [
             1=>'Pendiente',
@@ -22,7 +23,7 @@ class OrderController extends Controller {
         return [
             'orders'=>$orders,
             'status'=>$status,
-            'title'=>"La Tienda > Listado de Ordenes de Compra",
+            'title'=>"Backend La Tienda > Manejo de Ordenes de Compra",
         ];
     }
 
