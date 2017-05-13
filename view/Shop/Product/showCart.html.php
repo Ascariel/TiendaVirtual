@@ -18,11 +18,11 @@
     <tr>
         <td><?=$product['id']?></td>
         <td><img width="64px" src="<?=$product['image']?>" /></td>
-        <td><?=$product['name']?></td>
+        <td><a href="/shop/product/show?id=<?=$product['id']?>"><?=$product['name']?></a></td>
         <td><?=$product['price']?></td>
         <td><?=$product['price'] * $product['quantity']?></td>
         <td>
-            <div class="col-md-4">
+            <div style="width:100px;">
                 <div class="input-group">
                     <input type="number" class="form-control" value="<?= $product['quantity']?>" min="1" max="10" />
                     <a class="input-group-addon btn btn-default update-cart" rel="<?=$product['id']?>"><i class="fa fa-refresh"></i></a>
