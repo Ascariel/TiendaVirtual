@@ -1,4 +1,5 @@
 <div class="row">
+    
     <div class="col-md-10 col-md-offset-1">
         <h1 class="">Catalogo de Productos</h1>
         <hr>
