@@ -166,7 +166,7 @@ CREATE TABLE `user` (
   `fullname` varchar(100) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(100) DEFAULT NULL,
-  `is_admin` bit(1) NOT NULL DEFAULT b'0',
+  `is_admin` tinyint(4) NOT NULL DEFAULT '0',
   `vcard` varchar(100) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
