@@ -17,7 +17,7 @@ class Product extends Repository {
   }
 
   public function getOneProductById($id){
-    $rows = $this->select(['id','name','image','price','stock', 'description'], "id=$id");
+    $rows = $this->select(['id','name','image','price','stock', 'description', 'category_id'], "id=$id");
     return $rows->fetch();
   }
 }

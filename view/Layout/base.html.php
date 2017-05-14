@@ -41,8 +41,7 @@
 			        	<?php if ($_SESSION['user']['is_admin'] == 1): ?>
 				        	<li><a href="/admin/category">Manejar Categorias</a></li>
 				        	<li><a href="/admin/order">Manejar Ordenes</a></li>
-				        	<li><a href="/admin/order/index">Manejar Ordenes</a></li>
-				        	<li><a href="/admin/product/index">Manejar Productos</a></li>
+				        	<li><a href="/admin/product">Manejar Productos</a></li>
 				        <?php else: ?>
 				        	<li><a href="/shop/product/showCart">Ver Carro</a></li>
 			        	<?php endif ?>

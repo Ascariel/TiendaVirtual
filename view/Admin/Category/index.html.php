@@ -13,7 +13,7 @@
 			 		<th>Nombre</th>	 	
 			 		<th>Descripcion</th>
 			 		<th>Productos</th>
-			 		<th>Editar </th>
+			 		<!-- <th>Editar </th> -->
 			 		<th>Borrar </th>			
 	 			</tr>
 	 		</thead>
@@ -29,7 +29,7 @@
 			      <td>Pendiente</td>
 				 		<!-- Botones CRUD :) -->
 				 		<td><a href="/shop/product?id=<?= $category_id ?>" class="btn btn-block btn-sm btn-success">Ver Detalle</a></td>
-				 		<td><a href="/admin/category/edit?id=<?= $category_id ?>" class="btn btn-block btn-sm btn-warning">Editar</a></td>
+				 		<!-- <td><a href="/admin/category/edit?id=<?= $category_id ?>" class="btn btn-block btn-sm btn-warning">Editar</a></td> -->
 				 		<td><a href="/admin/category/delete?id=<?= $category_id ?>" class="btn btn-block btn-sm btn-danger">Borrar 	</a></td> 
 				  </tr>
 			  <?php endforeach ?> 			

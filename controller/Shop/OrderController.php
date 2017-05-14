@@ -34,6 +34,7 @@ class OrderController extends Controller {
         return [
             'details'=>$details,
             'order'=>$id,
+            'title' => 'Detalle Orden'
         ];
     }
 }
