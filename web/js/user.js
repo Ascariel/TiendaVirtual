@@ -1,1 +1,0 @@
-alert('pantalla de usuario');

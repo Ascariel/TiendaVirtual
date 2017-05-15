@@ -45,9 +45,6 @@
                                 <li><a href="/admin/product">Productos</a></li>
                               </ul>
                             </li>
-				        	<!-- <li><a href="/admin/category">Manejar Categorias</a></li>
-				        	<li><a href="/admin/order">Manejar Ordenes</a></li>
-				        	<li><a href="/admin/product">Manejar Productos</a></li> -->
 				        <?php else: ?>
 				        	<li><a href="/shop/product/showCart">Ver Carro</a></li>
 			        	<?php endif ?>
@@ -73,5 +70,6 @@
       <script src="/js/cart.js"></script>
       <script src="/js/buy.js"></script>
       <script src="/js/tables.js"></script>
+      <script src="/js/order.js"></script>
     </body>
 </html>

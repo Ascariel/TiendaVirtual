@@ -14,4 +14,3 @@
 
 <img src="/images/demo.jpg"/>
 <link rel="stylesheet" href="/css/site.css" />
-<script src="/js/user.js"></script>

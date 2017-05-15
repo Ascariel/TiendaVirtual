@@ -5,9 +5,9 @@
         <th>Estado</th>
         <th>Fecha de pedido</th>
         <th>Detalle</th>
-        <th>Modificar Estado</th> 
+        <th>Modificar Estado</th>
     </tr>
-    
+
     <?php foreach($orders as $order):?>
         <tr>
             <td><?=$order['id']?></td>
@@ -27,39 +27,7 @@
                      <option value="6"> ANULADO </option>
                  </select>
              </td>
-              
+
         </tr>
     <?php endforeach?>
 </table>
-
-
-
-<script type="text/javascript">
-
-  $(document).ready(function(){
-
-
-    $(".status_select").on("change", function(){
-      var option = $(this)
-      var status = option.val() 
-      var order_id = option.data("order-id")
-
-      $.ajax({
-        url: "/admin/order/updateOrderStatus",
-        type: "POST",
-        dataType:'json',
-        data: { status: status , order_id: order_id},
-        success: function(response){
-          console.log(response)
-          window.location.reload()
-          // alert("Estado Actualizado")
-        }
-      });
-
-    });
-
-  })
-  
-
-
-</script>
