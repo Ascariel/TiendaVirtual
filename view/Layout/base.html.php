@@ -11,10 +11,8 @@
 
 	    <!-- TEMPORAL, LLEVAR AL FINAL DEL ARCHIVO -->
 	    <script src="/js/jquery-3.2.1.min.js"></script>
-	    <script src="/js/datatables.min.js"></script>
     </head>
     <body>
-
 			<nav class="navbar navbar-default navbar-static-top">
 			  <div class="container">
 			    <!-- Brand and toggle get grouped for better mobile display -->
@@ -35,13 +33,21 @@
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			      <ul class="nav navbar-nav navbar-right">
 			      <li><a href="/shop/product">Productos</a></li>
-			        
 			        <?php if(!empty($_SESSION['user'])): ?>
-			        	
 			        	<?php if ($_SESSION['user']['is_admin'] == 1): ?>
-				        	<li><a href="/admin/category">Manejar Categorias</a></li>
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                Administrar <span class="caret"></span>
+                              </a>
+                              <ul class="dropdown-menu" role="menu" aria-labelledby="adminMenu">
+                                <li><a href="/admin/category">Categorias</a></li>
+                                <li><a href="/admin/order">Ordenes</a></li>
+                                <li><a href="/admin/product">Productos</a></li>
+                              </ul>
+                            </li>
+				        	<!-- <li><a href="/admin/category">Manejar Categorias</a></li>
 				        	<li><a href="/admin/order">Manejar Ordenes</a></li>
-				        	<li><a href="/admin/product">Manejar Productos</a></li>
+				        	<li><a href="/admin/product">Manejar Productos</a></li> -->
 				        <?php else: ?>
 				        	<li><a href="/shop/product/showCart">Ver Carro</a></li>
 			        	<?php endif ?>
@@ -61,9 +67,11 @@
 			<div class="container">
 				<?php @include($this->view) ?>
 			</div>
-      <!-- <script src="/js/jquery-3.2.1.min.js"></script> -->
+      <script src="/js/jquery-3.2.1.min.js"></script>
       <script src="/js/bootstrap.min.js"></script>
+      <script src="/js/datatables.min.js"></script>
       <script src="/js/cart.js"></script>
       <script src="/js/buy.js"></script>
+      <script src="/js/tables.js"></script>
     </body>
 </html>
