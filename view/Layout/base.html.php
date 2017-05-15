@@ -34,6 +34,7 @@
 			      <ul class="nav navbar-nav navbar-right">
 			      <li><a href="/shop/product">Productos</a></li>
 			        <?php if(!empty($_SESSION['user'])): ?>
+                        <li><a href="javascript:void(0);"><small><b><?=$_SESSION['user']["email"]?></b></small> </a></li>
 			        	<?php if ($_SESSION['user']['is_admin'] == 1): ?>
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
@@ -48,10 +49,7 @@
 				        <?php else: ?>
 				        	<li><a href="/shop/product/showCart">Ver Carro</a></li>
 			        	<?php endif ?>
-
-			        	<li><a href="javascript:void(0);"><small><b><?=$_SESSION['user']["email"]?></b></small> </a></li>
 			        	<li><a href="/shop/auth/logout">Cerrar Sesion</a></li>
-
 			        <?php else: ?>
 			        	<li><a href="/shop/product/showCart">Ver Carro</a></li>
 				        <li><a href="/shop/auth/signup">Registrarse</a></li>
