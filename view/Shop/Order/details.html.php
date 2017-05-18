@@ -10,8 +10,8 @@
     <tr>
         <td><?=$detail['name']?></td>
         <td><?=$detail['quantity']?></td>
-        <td><?=$detail['price']?></td>
-        <td><?=$detail['price'] * $detail['quantity']?></td>
+        <td>$<?=number_format($detail['price'],0,',','.')?></td>
+        <td>$<?=number_format($detail['price'] * $detail['quantity'],0,',','.')?></td>
     </tr>
     <?php $suma+=$detail['price'] * $detail['quantity'];?>
 <?php endforeach?>
@@ -21,15 +21,15 @@
         </tr>
         <tr>
             <td colspan="3">Sub Total</td>
-            <td><?=$suma?></td>
+            <td>$<?=number_format($suma,0,',','.')?></td>
         </tr>
         <tr>
             <td colspan="3">IVA</td>
-            <td><?=$suma * 0.19?></td>
+            <td>$<?=number_format($suma * 0.19,0,',','.')?></td>
         </tr>
         <tr>
             <td colspan="3">Total</td>
-            <td><?=$suma * 1.19?></td>
+            <td>$<?=number_format($suma * 1.19,0,',','.')?></td>
         </tr>
     </tfoot>
 </table>

@@ -5,7 +5,7 @@
       <caption>Resumen de Compra </caption>
       <tr>
         <td>Total a pagar</td>
-        <td>$<?=$total?></td>
+        <td>$<?=number_format($total,0,',','.')?></td>
       </tr>
       <tr>
         <td>Modo de pago</td>
