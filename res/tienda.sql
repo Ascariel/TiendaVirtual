@@ -27,10 +27,13 @@ CREATE TABLE `cash_order` (
   `status` tinyint(4) NOT NULL,
   `created_at` datetime NOT NULL,
   `user_id` int(11) NOT NULL,
+  `payment_type` tinyint(4) NOT NULL DEFAULT '2',
+  `payment_delivery` tinyint(4) NOT NULL DEFAULT '1',
+  `delivery_address` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `pedido_user_FK` (`user_id`),
   CONSTRAINT `pedido_user_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +42,7 @@ CREATE TABLE `cash_order` (
 
 LOCK TABLES `cash_order` WRITE;
 /*!40000 ALTER TABLE `cash_order` DISABLE KEYS */;
+INSERT INTO `cash_order` VALUES (1,1,'2017-05-15 09:31:03',1,2,1,NULL),(2,1,'2017-05-18 10:46:02',1,2,1,NULL),(3,1,'2017-05-18 11:23:26',1,1,2,'qweqweqwe');
 /*!40000 ALTER TABLE `cash_order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -110,7 +114,7 @@ CREATE TABLE `order_detail` (
   KEY `order_detail_cash_order_FK` (`order_id`),
   CONSTRAINT `order_detail_cash_order_FK` FOREIGN KEY (`order_id`) REFERENCES `cash_order` (`id`),
   CONSTRAINT `order_detail_product_FK` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,6 +123,7 @@ CREATE TABLE `order_detail` (
 
 LOCK TABLES `order_detail` WRITE;
 /*!40000 ALTER TABLE `order_detail` DISABLE KEYS */;
+INSERT INTO `order_detail` VALUES (1,1,1,1,50000),(2,1,2,2,50000),(4,1,3,1,50000);
 /*!40000 ALTER TABLE `order_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,7 +175,7 @@ CREATE TABLE `user` (
   `vcard` varchar(100) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,6 +184,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,NULL,'perico@perico.cl','66f4cd4735a75985f73ddd7a4b4c24f983afd9b4',0,'111','qweqweqwe');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,4 +201,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-11 13:28:20
+-- Dump completed on 2017-05-18 11:25:16

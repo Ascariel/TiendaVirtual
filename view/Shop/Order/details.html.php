@@ -1,4 +1,4 @@
-<h1>Detalle de orden N° <?=$order?></h1>
+<h1>Detalle de orden N° <?=$order['id']?></h1>
 <table class="table">
     <tr>
         <th>Producto</th>
@@ -23,13 +23,19 @@
             <td colspan="3">Sub Total</td>
             <td>$<?=number_format($suma,0,',','.')?></td>
         </tr>
+        <?php if($order['payment_delivery'] == 2): ?>
+        <tr>
+            <td colspan="3">Despacho a domicilio</td>
+            <td>$1.000</td>
+        </tr>
+        <?php endif; ?>
         <tr>
             <td colspan="3">IVA</td>
             <td>$<?=number_format($suma * 0.19,0,',','.')?></td>
         </tr>
         <tr>
             <td colspan="3">Total</td>
-            <td>$<?=number_format($suma * 1.19,0,',','.')?></td>
+            <td>$<?=number_format($suma * 1.19 + ($order['payment_delivery']==2?1000:0),0,',','.')?></td>
         </tr>
     </tfoot>
 </table>

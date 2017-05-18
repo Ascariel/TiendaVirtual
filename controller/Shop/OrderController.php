@@ -29,11 +29,13 @@ class OrderController extends Controller {
 
     function detailsAction(){
         $id = (int)$this->get('id');
-        $details = (new Order)->getOrderDetails($id)->fetchAll();
+        $order = new Order;
+        $details = $order->getOrderDetails($id)->fetchAll();
+        $order = $order->select(['id', 'payment_type', 'payment_delivery', 'delivery_address'], "id=$id");
 
         return [
             'details'=>$details,
-            'order'=>$id,
+            'order'=>$order->fetch(),
             'title' => 'Detalle Orden'
         ];
     }

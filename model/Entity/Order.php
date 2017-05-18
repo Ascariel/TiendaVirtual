@@ -22,7 +22,9 @@ class Order extends Repository {
     public function getAllOrderForUser($userId){
         $sqlAllOders = "
             SELECT
-                o.id, o.status, o.created_at
+                o.id, o.status, o.created_at,
+                payment_delivery, payment_type,
+                delivery_address
             FROM $this->table o
             WHERE o.user_id=:user_id
         ";
@@ -35,6 +37,6 @@ class Order extends Repository {
       $query = "select * from cash_order;";
       $rows = (new Order)->customQuery($query);
       return $rows;
-    
-    }    
+
+    }
 }

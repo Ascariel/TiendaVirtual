@@ -107,11 +107,15 @@ class BuyController extends Controller {
 
     function confirmAction(){
         if(!$this->isPOST()) $this->redirect('/shop/buy');
+        $payment = $_SESSION['payment'];
         $order = new Order;
         $order->create([
             'status'=>1,
             'created_at'=>(new \DateTime())->format('Y-m-d H:i:s'),
             'user_id'=>$_SESSION['user']['id'],
+            'payment_type'=>(int)$payment['type'],
+            'payment_delivery'=>(int)$payment['delivery'],
+            'delivery_address'=>$payment['address'],
         ]);
         $orderId = $order->getLastId();
         $detail = new OrderDetail;
