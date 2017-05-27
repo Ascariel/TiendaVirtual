@@ -6,8 +6,12 @@
 		<h1 class=""><?php echo $title ?></h1><br>
 	 	<a href="/admin/category/new" class="btn btn-sm btn-info">Crear Nueva Categoria</a>
 	 	<h2>Hola!</h2>
+ 
        <h2>Hola22</h2>
-	 	<table class="data-table table table-hover table-striped table-condensed ">
+ 
+	 	<h1>Esta linea es nueva</h1>
+
+ 	 	<table class="data-table table table-hover table-striped table-condensed ">
 	 		<thead >
 	 			<tr >
 			 		<th>ID</th>
